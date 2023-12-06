@@ -33,14 +33,11 @@ int main()
 
     loginTitle:
 
-
-    Sleep(1000);
-
     box("Welcome");
 
     loginStart:
 
-    cout << "Enter User: ";
+    cout << endl << "Enter User: ";
     getline(cin, user);
 
     cout << "Enter Password: ";
@@ -65,8 +62,9 @@ int main()
 
             if (change == 'y')
             { // START OF CHANGE IF
-
-                slowPrint("Enter New Password: ", 50);
+                system("cls");
+                box("Welcome");
+                slowPrint("\nEnter New Password: ", 50);
                 cin.ignore();
                 getline(cin, currentPW);
 
@@ -76,7 +74,7 @@ int main()
 
                 if (currentChange != currentPW)
                 { // START OF CHANGE PASS IF
-                    cout << "Please input the correct new password." << endl;
+                    cout << "\nPlease input the correct new password.\n" << endl;
                     goto startChangePW;
                 } // END OF CHANGE PASS IF
 
@@ -106,8 +104,10 @@ int main()
             break; // CASE 2 BREAK
 
         default:
-            cout << "Wrong User/Password!" << endl;
-            goto loginStart;
+            cout << "\nWrong User/Password!\n" << endl;
+            Sleep(1000);
+            system("cls");
+            goto loginTitle;
 
             break; // DEFAULT BREAK
 
@@ -118,6 +118,8 @@ int main()
     userStart:
 
     system("cls");
+
+    box("Welcome to the Game!");
 
     slowPrint("Welcome User", 100);
 
