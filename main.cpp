@@ -7,7 +7,7 @@ using namespace std;
 
 char change;
 string user, pass, confirm, currentPW, currentUser, currentChange;
-int errors = 0;
+int errors = 0, game;
 
 void slowPrint(const string& text, int delayTime)
 {
@@ -64,8 +64,11 @@ int main()
             { // START OF CHANGE IF
                 system("cls");
                 box("Welcome");
-                slowPrint("\nEnter New Password: ", 50);
+                slowPrint("\nEnter New User: ", 50);
                 cin.ignore();
+                getline(cin, currentUser);
+
+                slowPrint("Enter New Password: ", 50);
                 getline(cin, currentPW);
 
                 startChangePW:
@@ -123,6 +126,42 @@ int main()
 
     slowPrint("Welcome User", 100);
 
+    cout << endl << "1. Ping Pong \n2. Tic Tac Toe\n3. Snake Game" << endl;
 
+    Choose:
+    cout << "Choose Game: ";
+    cin >> game;
+
+    switch (game)
+    {
+    case 1:
+        system("cls");
+
+        box("Welcome to Ping Pong!");
+
+        break;
+
+    case 2:
+        system("cls");
+
+        box("Welcome to Tic Tac Toe!");
+
+        break;
+
+    case 3:
+        system("cls");
+
+        box("Welcome to Snake Game!");
+
+        break;
+
+    default:
+
+        cout << "Invalid Input!" << endl;
+        goto Choose;
+
+        break;
+
+    }
     return 0;
 } // END OF INT MAIN
